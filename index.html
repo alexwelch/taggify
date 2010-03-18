@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Taggable Demo</title>
+		<link rel="stylesheet" href="taggable.css" type="text/css" media="screen" title="no title" charset="utf-8" />		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script src="jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {					
+				
+				$('div#tags_go_here').makeTagCloud();
+				
+				$('#tag_cloud a, .taggable_item .tags ul li').makeTagLinks().addTagClasses();				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="tag_cloud">
+			<div id="tags_go_here">
+
+			</div>
+		</div>		
+		<div id="taggable_items">
+			<div class='taggable_item'>
+				<h3>Taggable Item 1</h3>
+				<div class='tags'>
+					<ul>
+						<li>Ruby on Rails</li>
+						<li>Prototype</li>
+						<li>Script.aculo.us</li>									
+					</ul>
+				</div>
+			</div>
+			
+			<div class='taggable_item'>
+				<h3>Taggable Item 2</h3>
+				<div class='tags'>
+					<ul>
+						<li>Another Tag</li>
+						<li>Tag</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class='taggable_item'>
+				<h3>Taggable Item 3</h3>
+				<div class='tags'>
+					<ul>
+						<li>Ruby on Rails</li>
+						<li>Prototype</li>
+						<li>Script.aculo.us</li>									
+					</ul>
+				</div>
+			</div>
+			
+			<div class='taggable_item'>
+				<h3>Taggable Item 4</h3>
+				<div class='tags'>
+					<ul>
+						<li>Ruby on Rails</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
