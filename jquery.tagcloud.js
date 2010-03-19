@@ -6,7 +6,7 @@
 (function($) {
 	
 	String.prototype.friendlyName = function() {
-		return this.toLowerCase().replace(/ /g,'-');
+		return this.toLowerCase().replace(/ /g,'-').replace(/\./g, '_');
 	}
 	
 	function uniqueArray(x) {
