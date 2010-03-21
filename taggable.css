@@ -1,3 +1,112 @@
-.tags li {
-	cursor: pointer;
+a, a img {border:none; }
+a:active, a:focus{ outline:none;}
+
+body {
+	margin:0px;
+	padding:0px;
+	font-family:Helvetica, Arial, sans-serif;
+	font-size:12px;
+	line-height:18px;
+	color:#333;
 }
+
+ul {
+	margin:0px;
+	padding:0px;
+}
+.force_break {
+	clear:both;
+}
+
+#wrap {
+	width:960px;
+	margin:30px auto;
+}
+
+#tag_cloud {
+	background:#333;
+	padding:20px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	margin-bottom:30px;
+}
+	#tags_go_here {
+		font-size:14px;
+	}
+		#tags_go_here a {
+			color:#CCC;
+			font-weight:bold;
+			text-decoration:none;
+			padding:10px;
+			-moz-border-radius:5px;
+			-webkit-border-radius:5px;
+			border-radius:5px;
+		}
+			#tags_go_here a:hover {
+				color:#FFF;
+			}
+		a.current {
+			background:#555;
+		}
+		a.largest_tag {
+		
+		}
+		a.large_tag {
+		
+		}
+		a.medium_tag {
+		
+		}
+		a.small_tag {
+		
+		}
+		a.smallest_tag {
+		
+		}
+		
+#taggable_items {
+	background:#CCC;
+/*	padding:20px 20px 0px 20px;*/
+	padding: 20px 0 0 20px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+	.taggable_item {
+		background:#FFF;
+		width:175px;
+		height:175px;
+		float:left;
+		padding:20px;
+		margin:0px 20px 20px 0px;
+		-moz-border-radius:10px;
+		-webkit-border-radius:10px;
+		border-radius:10px;
+		position:relative;
+	}
+	.no_margin {
+		margin-right:0px;
+	}
+		.taggable_item:hover {
+			background:#333;
+			color:#FFF;
+		}
+		.taggable_item h3 {
+			font-size:18px;
+			margin:0px 0px 10px 0px;
+		}
+			.taggable_item .tags {
+				position:absolute;
+				bottom:20px;
+			}
+				.taggable_item .tags ul {
+					
+				}
+					.taggable_item .tags ul li {
+						cursor:pointer;
+						list-style:none;
+					}
+						.taggable_item .tags ul li:hover {
+							color:#999;
+						}
