@@ -9,13 +9,12 @@
 		<script src="jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {					
+
+				$('#taggable_items .taggable_item .tags ul li').addTagClasses()
 				
 				$('div#tags_go_here').makeTagCloud();
 				
-				$('#tag_cloud a, #taggable_items .taggable_item .tags ul li').makeTagLinks();
-				
-				$('#taggable_items .taggable_item .tags ul li').addTagClasses()
-				
+				$('#tag_cloud a, #taggable_items .taggable_item .tags ul li').makeTagLinks();											
 			});
 		</script>
 	</head>
@@ -25,7 +24,11 @@
 			<div id="tags_go_here">
 
 			</div>
-		</div>		
+		</div>
+		<div id="intro">
+			There are 3 methods that make this happen.
+			$.fn.addTagClasses
+		</div>
 		<div id="taggable_items">
 			<div class='taggable_item'>
 				<h3>Taggable Item 1</h3>

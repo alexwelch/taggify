@@ -40,6 +40,7 @@
 		return $.map($(tags_container), function(a) { return $(a).text() })
 	};
 	
+	// scrape all tags in $(this) and add them to their parent element as class names for searching
 	$.fn.addTagClasses = function(options) {
 		soptions = $.extend({
 			taggable_item: 'div.taggable_item'		
@@ -49,6 +50,7 @@
 		});
 	};
 	
+	// scrapes all the tags in tags_container_selector and creates a tag cloud out of them
 	$.fn.makeTagCloud = function(options) {
 		settings = $.extend({
 			tags_container_selector: '#taggable_items .taggable_item .tags ul li',
@@ -56,8 +58,7 @@
 		}, options);
 		
 		$container = $(this);
-		
-		// todo: set this as an option
+				
 		$tags_container = $(settings.tags_container_selector);						
 		
 		var all_tags = getTagsArray($tags_container);		
@@ -111,6 +112,7 @@
 		return this;
 	}
 	
+	// makes tags clickable, when clicked they show only items with that tag
 	$.fn.makeTagLinks = function(options) {
 		settings = $.extend({
 			item_container_selector: '#taggable_items div.taggable_item',
