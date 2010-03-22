@@ -3,111 +3,252 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<title>Taggable Demo</title>
+		<title>Taggify: jQuery client-side tagging</title>
 		<link rel="stylesheet" href="demo.css" type="text/css" media="screen" title="no title" charset="utf-8" />		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 		<script src="jquery.taggify.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
+				
+				// scrapes all lis that are tags and make them searchable, then makes those tags clickable
 				$('#taggable_items .taggable_item .tags ul li').addTagClasses().makeTagLinks();
+				
+				// generate tag cloud inside of the specified DOM element
 				$('div#tags_go_here').makeTagCloud();
 			});
 		</script>
 	</head>
 	<body>
+		<a href="http://github.com/alexwelch/taggify"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
 		<div id="wrap">
-		<div id="tag_cloud">
-			<div id="tags_go_here">
+			<h1>Taggify!</h1>
+			<h2>Demo</h2>
+			<div id="tag_cloud">
+				<div id="tags_go_here">
 				
+				</div>
 			</div>
-		</div>
-		<div id="taggable_items">
-			<div class='taggable_item'>
-				<h3>Taggable Item 1</h3>
+			<div id="taggable_items">
+				<div class='taggable_item'>
+					<h3>Taggable Item 1</h3>
 				
-				<div class='tags'>
-					<ul>
-						<li>Ruby on Rails</li>
-						<li>Cat</li>
-						<li>Dog</li>
-					</ul>
+					<div class='tags'>
+						<ul>
+							<li>Ruby on Rails</li>
+							<li>Cat</li>
+							<li>Dog</li>
+						</ul>
+					</div>
 				</div>
-			</div>
 			
-			<div class='taggable_item'>
-				<h3>Taggable Item 2</h3>
-				<div class='tags'>
-					<ul>
-						<li>Another Tag</li>
-						<li>Safer Tag</li>
-					</ul>
+				<div class='taggable_item'>
+					<h3>Taggable Item 2</h3>
+					<div class='tags'>
+						<ul>
+							<li>Another Tag</li>
+							<li>Safer Tag</li>
+						</ul>
+					</div>
 				</div>
-			</div>
 			
-			<div class='taggable_item'>
-				<h3>Taggable Item 3</h3>
-				<div class='tags'>
-					<ul>
-						<li>Ruby on Rails</li>
-						<li>Mouse</li>
-						<li>google</li>									
-					</ul>
+				<div class='taggable_item'>
+					<h3>Taggable Item 3</h3>
+					<div class='tags'>
+						<ul>
+							<li>Ruby on Rails</li>
+							<li>Mouse</li>
+							<li>google</li>									
+						</ul>
+					</div>
 				</div>
-			</div>
 			
-			<div class='taggable_item'>
-				<h3>Taggable Item 4</h3>
-				<div class='tags'>
-					<ul>
-						<li>Ruby on Rails</li>
+				<div class='taggable_item'>
+					<h3>Taggable Item 4</h3>
+					<div class='tags'>
+						<ul>
+							<li>Ruby on Rails</li>
 						
-					</ul>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<div class='taggable_item'>
-				<h3>Taggable Item 1</h3>
-				<div class='tags'>
-					<ul>
-						<li>Ruby on Rails</li>
-						<li>Cat</li>
-						<li>Mouse</li>									
-					</ul>
+				<div class='taggable_item'>
+					<h3>Taggable Item 1</h3>
+					<div class='tags'>
+						<ul>
+							<li>Ruby on Rails</li>
+							<li>Cat</li>
+							<li>Mouse</li>									
+						</ul>
+					</div>
 				</div>
-			</div>
 			
-			<div class='taggable_item'>
-				<h3>Taggable Item 2</h3>
-				<div class='tags'>
-					<ul>
-						<li>Another Tag</li>
-						<li>Safer Tag</li>
-					</ul>
+				<div class='taggable_item'>
+					<h3>Taggable Item 2</h3>
+					<div class='tags'>
+						<ul>
+							<li>Another Tag</li>
+							<li>Safer Tag</li>
+						</ul>
+					</div>
 				</div>
-			</div>
 			
-			<div class='taggable_item'>
-				<h3>Taggable Item 3</h3>
-				<div class='tags'>
-					<ul>
-						<li>Ruby on Rails</li>
-						<li>Bird</li>
-						<li>Dog</li>									
-						<li>Giraffe</li>						
-					</ul>
+				<div class='taggable_item'>
+					<h3>Taggable Item 3</h3>
+					<div class='tags'>
+						<ul>
+							<li>Ruby on Rails</li>
+							<li>Bird</li>
+							<li>Dog</li>									
+							<li>Giraffe</li>						
+						</ul>
+					</div>
 				</div>
-			</div>
 			
-			<div class='taggable_item'>
-				<h3>Taggable Item 4</h3>
-				<div class='tags'>
-					<ul>
-						<li>Ruby on Rails</li>
+				<div class='taggable_item'>
+					<h3>Taggable Item 4</h3>
+					<div class='tags'>
+						<ul>
+							<li>Ruby on Rails</li>
 						
-					</ul>
+						</ul>
+					</div>
 				</div>
+				<div class="force_break"></div>
 			</div>
-			<div class="force_break"></div>
-		</div>
+			<div id='usage'>
+				<h2>Usage</h2>
+				<ol>
+					<li>Get JQuery at <a href="http://jquery.com/" title="jQuery: The Write Less, Do More, JavaScript Library">jquery.com</a> or at <a href="http://code.google.com/apis/ajaxlibs/" title="Google AJAX Libraries API - Google Code">code.google.com</a> and <a href="http://github.com/alexwelch/taggify" title="alexwelch's taggify at master - GitHub">download Taggify</a></li>
+					<li>
+						Include jQuery and jquery.taggify.js files in your template's <code>&lt;head&gt;</code>.<br />
+						<pre>
+							<code>
+&lt;script language=&quot;javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;/tweet/jquery.taggify.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+							</code>
+						</pre>
+					</li>
+					<li>
+						Also in <code>&lt;head&gt;</code>, Invoke the methods to find tags and generate the cloud <br />
+						<pre><code>
+&lt;script type=&#x27;text/javascript&#x27;&gt;
+       $(document).ready(function(){
+
+		// scrapes all lis that are tags and make them searchable
+		$(&#x27;#taggable_items .taggable_item .tags ul li&#x27;).addTagClasses();
+
+		// generate tag cloud inside of the specified DOM element
+		$(&#x27;div#tags_go_here&#x27;).makeTagCloud();
+       });
+&lt;/script&gt;
+						</code></pre>
+					
+					</li>
+					<li>In <code>&lt;body&gt;</code> make sure to create an element to place the tag-cloud into, in this case you would call it &lt;div id=&quot;tags_go_here&quot;&gt;&lt;/div&gt;</li>
+					<li>
+						Also in <code>&lt;body&gt;</code> create a list of taggable items for example a serious of divs or lis with that may be uniquely selected, the default assumption is a series of items with inside div with the id "taggable_items" containing multiple divs with the class "taggable_item" containing a div with a class of "tags" containing an unordered list of tags <br />
+							- For example:
+								<pre><code>
+&lt;div id=&quot;taggable_items&quot;&gt;
+	&lt;div class=&#x27;taggable_item&#x27;&gt;
+		&lt;h3&gt;Taggable Item 1&lt;/h3&gt;				
+		&lt;div class=&#x27;tags&#x27;&gt;
+			&lt;ul&gt;
+				&lt;li&gt;Ruby on Rails&lt;/li&gt;
+				&lt;li&gt;Cat&lt;/li&gt;
+				&lt;li&gt;Dog&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;			
+	&lt;div class=&#x27;taggable_item&#x27;&gt;
+		&lt;h3&gt;Taggable Item 2&lt;/h3&gt;
+		&lt;div class=&#x27;tags&#x27;&gt;
+			&lt;ul&gt;
+				&lt;li&gt;Another Tag&lt;/li&gt;
+				&lt;li&gt;Safer Tag&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt; &lt;!-- end #taggable_items --&gt;
+								</code></pre>
+					</li>
+					<li>Style it however you like.</li>
+				</ol>
+			</div>
+			<div id="options">
+				<h2>Options</h2>
+				<ul>
+					<li>
+						$.fn.makeTagCloud - 
+						<table class='options'>
+							<thead>
+								<th class='option'>option</th>
+								<th>default</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>tags_container_selector</td>
+									<td>#taggable_items .taggable_item .tags ul li</td>
+								</tr>
+								<tr>
+									<td>show_all_tags</td>
+									<td>true</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					<li>
+						$.fn.makeTagLinks - 
+						<table class='options'>
+							<thead>
+								<th class='option'>option</th>
+								<th>default</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>item_container_selector</td>
+									<td>#taggable_items div.taggable_item</td>
+								</tr>
+								<tr>
+									<td>hidden_item_class</td>
+									<td>hidden_taggable_item</td>
+								</tr>
+								<tr>
+									<td>hidden_item_container_selector</td>
+									<td>#taggable_items div.hidden_taggable_item</td>
+								</tr>
+								<tr>
+									<td>current_class</td>
+									<td>current</td>
+								</tr>
+								<tr>
+									<td>fadeout_speed</td>
+									<td>normal</td>
+								</tr>
+								<tr>
+									<td>fadein_speed</td>
+									<td>slow</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					<li>
+						$.fn.addTagClasses -
+						<table class='options'>
+							<thead>
+								<th class='option'>option</th>
+								<th>default</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>taggable_item</td>
+									<td>div.taggable_item</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+				</ul>
+			</div>
 		</div> <!-- /wrap -->
 	</body>
 </html>

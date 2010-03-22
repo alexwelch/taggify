@@ -10,6 +10,20 @@ body {
 	color:#333;
 }
 
+pre code {
+	display: block;
+	padding: 0 10px;
+	line-height: 18px;
+	overflow: scroll;
+}
+
+code {
+	font: 12px Times, "Times New Roman", sans-serif;
+	background: #333;
+	color: #ccc;
+	padding: 2px;
+}
+
 ul {
 	margin:0px;
 	padding:0px;
@@ -110,3 +124,33 @@ ul {
 						.taggable_item .tags ul li:hover {
 							color:#999;
 						}
+						
+	div#usage, div#options {
+		width: 470px;
+		float: left;		
+	}
+	div#usage {
+		margin-right: 20px;
+	}
+	
+	#options ul li {
+		margin-bottom: 25px;
+	}
+	
+	table.options {
+		border-collapse: collapse;
+		width: 450px;
+	}
+	table.options th {
+		text-align: left;
+		padding: 2px 5px;
+		color: #ccc;
+		background: #333;
+	}
+	table.options td {
+		border-bottom: #ccc 1px solid;
+		padding: 3px 0;
+	}
+	table.options th.option {
+		width: 180px;
+	}
