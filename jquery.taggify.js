@@ -108,6 +108,7 @@
 		     all_tags_list += "<a title='" + title_text + "' class='" + size + "' href='#" + unique_tags[i].friendlyName() + "'>" + unique_tags[i] + "</a> ";
 		  }
 		$container.html(all_tags_list);
+		$container.find('a').makeTagLinks();
 		}
 		return this;
 	}

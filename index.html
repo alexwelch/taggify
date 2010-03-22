@@ -4,17 +4,13 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<title>Taggable Demo</title>
-		<link rel="stylesheet" href="taggable.css" type="text/css" media="screen" title="no title" charset="utf-8" />		
+		<link rel="stylesheet" href="demo.css" type="text/css" media="screen" title="no title" charset="utf-8" />		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-		<script src="jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.taggify.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
-			$(document).ready(function() {					
-
-				$('#taggable_items .taggable_item .tags ul li').addTagClasses()
-				
+			$(document).ready(function() {
+				$('#taggable_items .taggable_item .tags ul li').addTagClasses().makeTagLinks();
 				$('div#tags_go_here').makeTagCloud();
-				
-				$('#tag_cloud a, #taggable_items .taggable_item .tags ul li').makeTagLinks();											
 			});
 		</script>
 	</head>
@@ -22,12 +18,8 @@
 		<div id="wrap">
 		<div id="tag_cloud">
 			<div id="tags_go_here">
-
+				
 			</div>
-		</div>
-		<div id="intro">
-			There are 3 methods that make this happen.
-			$.fn.addTagClasses
 		</div>
 		<div id="taggable_items">
 			<div class='taggable_item'>
