@@ -36,6 +36,15 @@ ul {
 	width:960px;
 	margin:30px auto;
 }
+div#footer {
+	clear: both;
+	padding-top: 30px;
+	margin-top: 30px;
+	border-top: #ccc 1px solid;
+}
+	#footer ul {
+		list-style-position: inside;
+	}
 
 #tag_cloud {
 	background:#333;
