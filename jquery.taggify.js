@@ -14,9 +14,9 @@
 	  for(i=0;i<x.length;i++) {    
 		  if($.inArray(x[i], tmp) == -1) {
 	      tmp.length+=1;         
-	      tmp[tmp.length-1]=x[i];      
-	    }   
-	  }   
+	      tmp[tmp.length-1]=x[i];
+	    }
+	  }
 	  return tmp;
 	};
 	
@@ -43,10 +43,10 @@
 	// scrape all tags in $(this) and add them to their parent element as class names for searching
 	$.fn.addTagClasses = function(options) {
 		soptions = $.extend({
-			taggable_item: 'div.taggable_item'		
+			item_container_selector: 'div.taggable_item'		
 		}, options);
 		return $(this).each(function(index) {
-			$(this).closest(soptions.taggable_item).addClass($(this).text().friendlyName());
+			$(this).closest(soptions.item_container_selector).addClass($(this).text().friendlyName());
 		});
 	};
 	
@@ -54,7 +54,13 @@
 	$.fn.makeTagCloud = function(options) {
 		settings = $.extend({
 			tags_container_selector: '#taggable_items .taggable_item .tags ul li',
-			show_all_tag: true	
+			show_all_tag: true,
+			item_container_selector: '#taggable_items div.taggable_item',
+			hidden_item_class: 'hidden_taggable_item',
+			hidden_item_container_selector: '#taggable_items div.hidden_taggable_item',			
+			current_class: 'current',
+			fadeout_speed: 'normal',
+			fadein_speed: 'slow'
 		}, options);
 		
 		$container = $(this);
@@ -108,7 +114,7 @@
 		     all_tags_list += "<a title='" + title_text + "' class='" + size + "' href='#" + unique_tags[i].friendlyName() + "'>" + unique_tags[i] + "</a> ";
 		  }
 		$container.html(all_tags_list);
-		$container.find('a').makeTagLinks();
+		$container.find('a').makeTagLinks(settings);
 		}
 		return this;
 	}
