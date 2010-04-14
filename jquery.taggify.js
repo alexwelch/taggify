@@ -1,4 +1,4 @@
-// tagCloud v .09 super duper beta for jQuery 1.3
+// tagCloud v 0.09 super duper beta for jQuery 1.3
 // c) 2010 Alex Welch - www.alexwelch.com - me@alexwelch.com
 // Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
  
@@ -40,13 +40,28 @@
 		return $.map($(tags_container), function(a) { return $(a).text() })
 	};
 	
+	$.fn.taggify = function(options) {
+		settings = $.extend({
+			item_container_selector: '#taggable_items .taggable_item',
+			hidden_item_container_selector: '#taggable_items .hidden_taggable_item',
+			tags_container_selector: '#taggable_items .taggable_item .tags ul li',
+			hidden_item_class: 'hidden_taggable_item',
+			current_class: 'current',
+			fadeout_speed: 'normal',
+			fadein_speed: 'slow',
+			show_all_tags: true
+		}, options);
+		$(settings.tags_container_selector).addTagClasses(settings).makeTagLinks(settings);
+		return $(this).makeTagCloud(settings);
+	};
+	
 	// scrape all tags in $(this) and add them to their parent element as class names for searching
 	$.fn.addTagClasses = function(options) {
-		soptions = $.extend({
-			item_container_selector: 'div.taggable_item'		
+		settings = $.extend({
+			item_container_selector: '.taggable_item'		
 		}, options);
 		return $(this).each(function(index) {
-			$(this).closest(soptions.item_container_selector).addClass($(this).text().friendlyName());
+			$(this).closest(settings.item_container_selector).addClass($(this).text().friendlyName());
 		});
 	};
 	
@@ -55,9 +70,9 @@
 		settings = $.extend({
 			tags_container_selector: '#taggable_items .taggable_item .tags ul li',
 			show_all_tag: true,
-			item_container_selector: '#taggable_items div.taggable_item',
+			item_container_selector: '#taggable_items .taggable_item',
 			hidden_item_class: 'hidden_taggable_item',
-			hidden_item_container_selector: '#taggable_items div.hidden_taggable_item',			
+			hidden_item_container_selector: '#taggable_items .hidden_taggable_item',			
 			current_class: 'current',
 			fadeout_speed: 'normal',
 			fadein_speed: 'slow'
@@ -122,9 +137,9 @@
 	// makes tags clickable, when clicked they show only items with that tag
 	$.fn.makeTagLinks = function(options) {
 		settings = $.extend({
-			item_container_selector: '#taggable_items div.taggable_item',
+			item_container_selector: '#taggable_items .taggable_item',
 			hidden_item_class: 'hidden_taggable_item',
-			hidden_item_container_selector: '#taggable_items div.hidden_taggable_item',			
+			hidden_item_container_selector: '#taggable_items .hidden_taggable_item',			
 			current_class: 'current',
 			fadeout_speed: 'normal',
 			fadein_speed: 'slow'
@@ -136,9 +151,7 @@
 		
 		
 		$container.click(function() {  
-			// $("html, body").scrollTop(0);
 			$("html,body").animate({scrollTop: 0}, 200);
-	    // $(this).css('outline','none');  
 	    $(settings.container_selector).removeClass(settings.current_class);  
 	    $(this).addClass(settings.current_class);
 

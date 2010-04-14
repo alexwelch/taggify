@@ -54,6 +54,15 @@ div#footer {
 	border-radius:10px;
 	margin-bottom:30px;
 }
+.example2 #tag_cloud {
+	float: left;
+	width: 175px;
+	margin:0 20px 20px 0;
+	padding:20px;
+}
+	.example2 #tag_cloud a {
+		color: #fff;
+	}
 	#tags_go_here {
 		font-size:14px;
 	}
@@ -69,7 +78,7 @@ div#footer {
 			#tags_go_here a:hover {
 				color:#FFF;
 			}
-		a.current {
+		#tags_go_here a.current {
 			background:#555;
 		}
 		a.largest_tag {
@@ -88,6 +97,12 @@ div#footer {
 		
 		}
 		
+		.example2 a.largest_tag { font-size: 17px;}
+		.example2 a.large_tag { font-size: 15px; }
+		.example2 a.medium_tag { font-size: 13px; }
+		.example2 a.small_tag { font-size: 11px; }
+		.example2 a.smallest_tag { font-size: 9px; }
+		
 #taggable_items {
 	background:#CCC;
 /*	padding:20px 20px 0px 20px;*/
@@ -95,6 +110,10 @@ div#footer {
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
+}
+.example2 #searchable_items {
+	margin-left: 255px;
+	width: 705px;
 }
 	.taggable_item {
 		background:#FFF;
@@ -107,6 +126,15 @@ div#footer {
 		-webkit-border-radius:10px;
 		border-radius:10px;
 		position:relative;
+	}
+	.searchable_item {
+		padding: 10px 20px;
+		margin:0px 20px 20px 0px;
+		-moz-border-radius:10px;
+		-webkit-border-radius:10px;
+		border-radius:10px;
+		background: #ccc;
+		list-style: none;
 	}
 	.no_margin {
 		margin-right:0px;
@@ -126,11 +154,11 @@ div#footer {
 				.taggable_item .tags ul {
 					
 				}
-					.taggable_item .tags ul li {
+					.tags ul li {
 						cursor:pointer;
 						list-style:none;
 					}
-						.taggable_item .tags ul li:hover {
+						.tags ul li:hover {
 							color:#999;
 						}
 						

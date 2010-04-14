@@ -11,10 +11,10 @@
 			$(document).ready(function() {
 				
 				// scrapes all lis that are tags and make them searchable, then makes those tags clickable
-				$('#taggable_items .taggable_item .tags ul li').addTagClasses().makeTagLinks();
+				// $('#taggable_items .taggable_item .tags ul li').addTagClasses().makeTagLinks();
 				
 				// generate tag cloud inside of the specified DOM element
-				$('div#tags_go_here').makeTagCloud();
+				$('div#tags_go_here').taggify();
 			});
 		</script>
 	</head>
@@ -72,7 +72,7 @@
 					</div>
 				</div>
 				<div class='taggable_item'>
-					<h3>Taggable Item 1</h3>
+					<h3>Taggable Item 5</h3>
 					<div class='tags'>
 						<ul>
 							<li>Ruby on Rails</li>
@@ -83,7 +83,7 @@
 				</div>
 			
 				<div class='taggable_item'>
-					<h3>Taggable Item 2</h3>
+					<h3>Taggable Item 6</h3>
 					<div class='tags'>
 						<ul>
 							<li>Another Tag</li>
@@ -93,7 +93,7 @@
 				</div>
 			
 				<div class='taggable_item'>
-					<h3>Taggable Item 3</h3>
+					<h3>Taggable Item 7</h3>
 					<div class='tags'>
 						<ul>
 							<li>Ruby on Rails</li>
@@ -105,7 +105,7 @@
 				</div>
 			
 				<div class='taggable_item'>
-					<h3>Taggable Item 4</h3>
+					<h3>Taggable Item 8</h3>
 					<div class='tags'>
 						<ul>
 							<li>Ruby on Rails</li>
