@@ -23,18 +23,13 @@ http://alexwelch.com/taggify
 3. Also in <head>, Invoke the methods to find tags and generate the cloud
     <script type='text/javascript'>
         $(document).ready(function(){
-			
-			// scrapes all lis that are tags and make them searchable
-			$('#taggable_items .taggable_item .tags ul li').addTagClasses();
-			
-			// generate tag cloud inside of the specified DOM element
-			$('div#tags_go_here').makeTagCloud();
+			$('div#tags_go_here').taggify();
         });
     </script>
 
 4. In <body> make sure to create an element to place the tag-cloud into, in this case you would call it <div id="tags_go_here"></div>
 
-5. Also in <body> create a list of taggable items for example a serious of divs or lis with that may be uniquely selected, the default assumption is a series of items with inside div with the id "taggable_items" containing multiple divs with the class "taggable_item" containing a div with a class of "tags" containing an unordered list of tags
+5. Also in <body> create a list of taggable items for example a serious of divs or lis with that may be uniquely selected, the default assumption is a series of items within an element with the id "taggable_items" containing multiple elements with the class "taggable_item" containing a div with a class of "tags" containing an unordered list of tags
 	- For example:
 		<div id="taggable_items">
 			<div class='taggable_item'>
