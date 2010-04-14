@@ -4,6 +4,17 @@
  
 
 (function($) {
+	df = {
+		item_container_selector: '#taggable_items .taggable_item',
+		hidden_item_container_selector: '#taggable_items .hidden_taggable_item',
+		tags_container_selector: '#taggable_items .taggable_item .tags ul li',
+		hidden_item_class: 'hidden_taggable_item',
+		current_class: 'current',
+		fadeout_speed: 'normal',
+		fadein_speed: 'slow',
+		show_all_tag: true,
+		show_all_tag_text: 'All'
+	}
 	
 	String.prototype.friendlyName = function() {
 		return this.toLowerCase().replace(/ /g,'-').replace(/\./g, '_');
@@ -41,16 +52,7 @@
 	};
 	
 	$.fn.taggify = function(options) {
-		settings = $.extend({
-			item_container_selector: '#taggable_items .taggable_item',
-			hidden_item_container_selector: '#taggable_items .hidden_taggable_item',
-			tags_container_selector: '#taggable_items .taggable_item .tags ul li',
-			hidden_item_class: 'hidden_taggable_item',
-			current_class: 'current',
-			fadeout_speed: 'normal',
-			fadein_speed: 'slow',
-			show_all_tags: true
-		}, options);
+		settings = $.extend(df, options);
 		$(settings.tags_container_selector).addTagClasses(settings).makeTagLinks(settings);
 		return $(this).makeTagCloud(settings);
 	};
@@ -58,7 +60,7 @@
 	// scrape all tags in $(this) and add them to their parent element as class names for searching
 	$.fn.addTagClasses = function(options) {
 		settings = $.extend({
-			item_container_selector: '.taggable_item'		
+			item_container_selector: df.item_container_selector
 		}, options);
 		return $(this).each(function(index) {
 			$(this).closest(settings.item_container_selector).addClass($(this).text().friendlyName());
@@ -67,16 +69,7 @@
 	
 	// scrapes all the tags in tags_container_selector and creates a tag cloud out of them
 	$.fn.makeTagCloud = function(options) {
-		settings = $.extend({
-			tags_container_selector: '#taggable_items .taggable_item .tags ul li',
-			show_all_tag: true,
-			item_container_selector: '#taggable_items .taggable_item',
-			hidden_item_class: 'hidden_taggable_item',
-			hidden_item_container_selector: '#taggable_items .hidden_taggable_item',			
-			current_class: 'current',
-			fadeout_speed: 'normal',
-			fadein_speed: 'slow'
-		}, options);
+		settings = $.extend(df, options);
 		
 		$container = $(this);
 				
@@ -113,7 +106,7 @@
 			
 		var all_tags_list = '';
 		if(settings.show_all_tag) {
-				all_tags_list += "<a title='all items' class='" + getTagClass(100, 1, 2, 3, 4) + "' href='#all'>All</a> ";
+				all_tags_list += "<a title='all items' class='" + getTagClass(100, 1, 2, 3, 4) + "' href='#all'>" + settings.show_all_tag_text + "</a> ";
 		}
 		if(unique_tags.length != 0) {	  
 		  for(var i=0; i<unique_tags.length; i++) {
@@ -136,14 +129,7 @@
 	
 	// makes tags clickable, when clicked they show only items with that tag
 	$.fn.makeTagLinks = function(options) {
-		settings = $.extend({
-			item_container_selector: '#taggable_items .taggable_item',
-			hidden_item_class: 'hidden_taggable_item',
-			hidden_item_container_selector: '#taggable_items .hidden_taggable_item',			
-			current_class: 'current',
-			fadeout_speed: 'normal',
-			fadein_speed: 'slow'
-		}, options);
+		settings = $.extend(df, options);
 		
 		var $container = $(this);
 		settings.container_selector = $container.selector;
@@ -157,7 +143,7 @@
 
 	    var filterVal = $(this).text().friendlyName();  
 
-	    if(filterVal == 'all') {  
+	    if(filterVal == settings.show_all_tag_text.friendlyName()) {  
 	    	$(settings.hidden_item_container_selector).fadeIn(settings.fadeout_speed).removeClass(settings.hidden_item_class);  
 	    } else {  
 	    	$item_container.each(function() {  

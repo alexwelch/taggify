@@ -133,12 +133,7 @@
 						<pre><code>
 &lt;script type=&#x27;text/javascript&#x27;&gt;
        $(document).ready(function(){
-
-		// scrapes all lis that are tags and make them searchable
-		$(&#x27;#taggable_items .taggable_item .tags ul li&#x27;).addTagClasses();
-
-		// generate tag cloud inside of the specified DOM element
-		$(&#x27;div#tags_go_here&#x27;).makeTagCloud();
+		$(&#x27;div#tags_go_here&#x27;).taggify();
        });
 &lt;/script&gt;
 						</code></pre>
@@ -176,108 +171,56 @@
 				</ol>
 			</div>
 			<div id="options">
-				<h2>Options</h2>
-				<ul>
-					<li>
-						$.fn.makeTagCloud - 
-						<table class='options'>
-							<thead>
-								<tr>
-									<th class='option'>option</th>
-									<th>default</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>tags_container_selector</td>
-									<td>#taggable_items .taggable_item .tags ul li</td>
-								</tr>
-								<tr>
-									<td>show_all_tags</td>
-									<td>true</td>
-								</tr>
-								<tr>
-									<td>item_container_selector</td>
-									<td>#taggable_items div.taggable_item</td>
-								</tr>
-								<tr>
-									<td>hidden_item_class</td>
-									<td>hidden_taggable_item</td>
-								</tr>
-								<tr>
-									<td>hidden_item_container_selector</td>
-									<td>#taggable_items div.hidden_taggable_item</td>
-								</tr>
-								<tr>
-									<td>current_class</td>
-									<td>current</td>
-								</tr>
-								<tr>
-									<td>fadeout_speed</td>
-									<td>normal</td>
-								</tr>
-								<tr>
-									<td>fadein_speed</td>
-									<td>slow</td>
-								</tr>
-							</tbody>
-						</table>
-					</li>
-					<li>
-						$.fn.makeTagLinks - 
-						<table class='options'>
-							<thead>
-								<tr>
-									<th class='option'>option</th>
-									<th>default</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>item_container_selector</td>
-									<td>#taggable_items div.taggable_item</td>
-								</tr>
-								<tr>
-									<td>hidden_item_class</td>
-									<td>hidden_taggable_item</td>
-								</tr>
-								<tr>
-									<td>hidden_item_container_selector</td>
-									<td>#taggable_items div.hidden_taggable_item</td>
-								</tr>
-								<tr>
-									<td>current_class</td>
-									<td>current</td>
-								</tr>
-								<tr>
-									<td>fadeout_speed</td>
-									<td>normal</td>
-								</tr>
-								<tr>
-									<td>fadein_speed</td>
-									<td>slow</td>
-								</tr>
-							</tbody>
-						</table>
-					</li>
-					<li>
-						$.fn.addTagClasses -
-						<table class='options'>
-							<thead>
-								<tr>
-									<th class='option'>option</th>
-									<th>default</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>item_container_selector</td>
-									<td>div.taggable_item</td>
-								</tr>
-							</tbody>
-						</table>
-					</li>
-				</ul>
+				<h2>Options</h2> 
+				<table class='options'>
+					<thead>
+						<tr>
+							<th class='option'>option</th>
+							<th>default</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>item_container_selector</td>
+							<td>'#taggable_items .taggable_item'</td>
+						</tr>
+						<tr>
+							<td>hidden_item_container_selector</td>
+							<td>'#taggable_items .hidden_taggable_item'</td>
+						</tr>
+						<tr>
+							<td>tags_container_selector</td>
+							<td>'#taggable_items .taggable_item .tags ul li'</td>
+						</tr>
+						<tr>
+							<td>hidden_item_class</td>
+							<td>'hidden_taggable_item'</td>
+						</tr>
+						<tr>
+							<td>current_class</td>
+							<td>'current'</td>
+						</tr>																																
+						<tr>
+							<td>fadeout_speed</td>
+							<td>'normal'</td>
+						</tr>
+						<tr>
+							<td>fadein_speed</td>
+							<td>'slow'</td>
+						</tr>
+						<tr>
+							<td>show_all_tag</td>
+							<td>true</td>
+						</tr>
+						<tr>
+							<td>show_all_tags_text</td>
+							<td>'All'</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<p><a href='example2.html'>Example using options</a></p>
 			</div>
 			<div id="footer">
 				<h3>Credits, Sources, Inspiration</h3>
