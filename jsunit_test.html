@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>testpage</title>
+		<script src="jsunit/app/jsUnitCore.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script src="jquery.taggify.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			
+			function testfriendlyName() {
+				assertEquals("friendly name converts spaces", 'hello-there-you', 'hello there you'.friendlyName());
+				assertEquals("friendly name converts periods", 'hello_there_you', 'hello.there.you'.friendlyName());
+				assertEquals("friendly name lowercases", 'hellothereyou', 'HelloThereYou'.friendlyName());
+				assertEquals("now test it all", 'hello-there-you___', 'Hello There You...'.friendlyName());
+			}
+			
+			function testgetTagClass() {
+				// not too picky about this sense it's just for visualization...
+				sizes = [2,4,6,8];
+				assertEquals("largest tag", 'largest_tag', $.taggify.getTagClass(8, sizes));
+				assertEquals("large tag", 'large_tag', $.taggify.getTagClass(7, sizes));
+				assertEquals("medium tag", 'medium_tag', $.taggify.getTagClass(5, sizes));
+				assertEquals("small tag", 'small_tag', $.taggify.getTagClass(3, sizes));
+				assertEquals("smallest tag", 'smallest_tag', $.taggify.getTagClass(1, sizes));				
+			}	
+			
+			function testuniqueArray() {
+				array = [4,1,2,3,3,1];
+				unique_array = $.taggify.uniqueArray(array);
+				assertEquals("1st item of array is 4", 4, unique_array[0]);
+				assertEquals("2nd item of array is 1", 1, unique_array[1]);
+				assertEquals("3rd item of array is 2", 2, unique_array[2]);
+				assertEquals("4th item of array is 3", 3, unique_array[3]);
+				assertUndefined("5th item is undefined", unique_array[4]);
+			}
+			
+			function testgetTagsArray() {
+				$('#tags_container').html('<em>tag 1</em><em>tag 2</em>');
+				assertEquals("first tag", "tag 1", $.taggify.getTagsArray('#tags_container em')[0]);
+				assertEquals("second tag", "tag 2", $.taggify.getTagsArray('#tags_container em')[1]);
+				assertUndefined("third tag is undefined", $.taggify.getTagsArray('#tags_container em')[2])
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>Run these tests with <a href="http://www.jsunit.net/" title="JsUnit">JsUnit</a></h1>
+		
+		<!-- used for test -->
+		<div id="tags_container">
+			
+		</div>
+	</body>
+</html>

@@ -1,7 +1,6 @@
 // tagCloud v 0.09 super duper beta for jQuery 1.3
 // c) 2010 Alex Welch - www.alexwelch.com - me@alexwelch.com
 // Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
- 
 
 (function($) {
 	df = {
@@ -16,40 +15,55 @@
 		show_all_tag_text: 'All'
 	}
 	
+	$.taggify = {
+		getTagClass: function(z, sizes) {			
+			var tagClass = "smallest_tag";   
+		  if(z==sizes[0]) {   
+		    tagClass="smallest_tag";   
+		  } else if(z==sizes[3]) {   
+		    tagClass="largest_tag";    
+		  } else if(z >= sizes[2]) {    
+		    tagClass="large_tag";    
+		  } else if(z <= sizes[2] && z >= sizes[1]) {    
+		    tagClass="medium_tag";    
+		  } else if(z <= sizes[1] && z >= sizes[0]) {    
+		    tagClass="small_tag";
+		  }
+		  return tagClass;
+		},
+		uniqueArray: function(x) {
+			tmp = new Array(0);   
+		  for(i=0;i<x.length;i++) {    
+			  if($.inArray(x[i], tmp) == -1) {
+		      tmp.length+=1;         
+		      tmp[tmp.length-1]=x[i];
+		    }
+		  }
+		  return tmp;
+		},
+		getTagsArray: function(tags_container) {
+			return $.map($(tags_container), function(a) { return $(a).text() })
+		}
+	}
+	
 	String.prototype.friendlyName = function() {
 		return this.toLowerCase().replace(/ /g,'-').replace(/\./g, '_');
 	}
 	
-	function uniqueArray(x) {
-		tmp = new Array(0);   
-	  for(i=0;i<x.length;i++) {    
-		  if($.inArray(x[i], tmp) == -1) {
-	      tmp.length+=1;         
-	      tmp[tmp.length-1]=x[i];
-	    }
-	  }
-	  return tmp;
-	};
+	// function uniqueArray(x) {
+	// 	tmp = new Array(0);   
+	//   for(i=0;i<x.length;i++) {    
+	// 	  if($.inArray(x[i], tmp) == -1) {
+	//       tmp.length+=1;         
+	//       tmp[tmp.length-1]=x[i];
+	//     }
+	//   }
+	//   return tmp;
+	// };
 	
-	function getTagClass(z, s, m, l, xl) {
-		var tagClass = "smallest_tag";   
-	  if(z==s) {   
-	    tagClass="smallest_tag";   
-	  } else if(z==xl) {   
-	    tagClass="largest_tag";    
-	  } else if(z >= l) {    
-	    tagClass="large_tag";    
-	  } else if(z <= l && z >= m) {    
-	    tagClass="medium_tag";    
-	  } else if(z <= m && z >= s) {    
-	    tagClass="small_tag";
-	  }
-	  return tagClass;
-	};
-	
-	function getTagsArray(tags_container) {				
-		return $.map($(tags_container), function(a) { return $(a).text() })
-	};
+	// function getTagsArray(tags_container) {				
+	// 	return $.map($(tags_container), function(a) { return $(a).text() })
+	// };
 	
 	$.fn.taggify = function(options) {
 		settings = $.extend(df, options);
@@ -75,9 +89,9 @@
 				
 		$tags_container = $(settings.tags_container_selector);						
 		
-		var all_tags = getTagsArray($tags_container);		
+		var all_tags = $.taggify.getTagsArray($tags_container);		
 
-		var unique_tags = uniqueArray(all_tags);
+		var unique_tags = $.taggify.uniqueArray(all_tags);
 		unique_tags.sort(); //sort alphabetically			
 		
 		var frequency = new Array();
@@ -106,7 +120,7 @@
 			
 		var all_tags_list = '';
 		if(settings.show_all_tag) {
-				all_tags_list += "<a title='all items' class='" + getTagClass(100, 1, 2, 3, 4) + "' href='#all'>" + settings.show_all_tag_text + "</a> ";
+				all_tags_list += "<a title='all items' class='" + $.taggify.getTagClass(4, [1, 2, 3, 4]) + "' href='#all'>" + settings.show_all_tag_text + "</a> ";
 		}
 		if(unique_tags.length != 0) {	  
 		  for(var i=0; i<unique_tags.length; i++) {
@@ -118,7 +132,7 @@
 		        counts[i] = z;
 		     }				 
 				 var title_text = z + ((z==1) ? ' item' : ' items');
-		     var size = getTagClass(z, smallest, medium, large, largest);
+		     var size = $.taggify.getTagClass(z, [smallest, medium, large, largest]);
 		     all_tags_list += "<a title='" + title_text + "' class='" + size + "' href='#" + unique_tags[i].friendlyName() + "'>" + unique_tags[i] + "</a> ";
 		  }
 		$container.html(all_tags_list);
