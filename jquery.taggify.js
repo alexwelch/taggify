@@ -4,16 +4,21 @@
 
 (function($) {
   df = {
-    item_container_selector: '#taggable_items .taggable_item',
-    hidden_item_container_selector: '#taggable_items .hidden_taggable_item',
-    tags_container_selector: '#taggable_items .taggable_item .tags ul li',
+    // item_container_selector: '#taggable_items .taggable_item',
+    // hidden_item_container_selector: '#taggable_items .hidden_taggable_item',
+    // tags_container_selector: '#taggable_items .taggable_item .tags ul li',
     hidden_item_class: 'hidden_taggable_item',
     current_class: 'current',
     fadeout_speed: 'normal',
     fadein_speed: 'slow',
     show_all_tag: true,
-    show_all_tag_text: 'All'
-  };
+    show_all_tag_text: 'All',
+    selectors: {
+      item_container: '#taggable_items .taggable_item',
+      hidden_item_container: '#taggable_items .hidden_taggable_item',
+      tags_container: '#taggable_items .taggable_item .tags ul li'
+    }
+  };    
   
   $.taggify = {
     getTagClass: function(z, sizes) {     
@@ -67,14 +72,14 @@
   
   $.fn.taggify = function(options) {
     settings = $.extend(df, options);
-    $(settings.tags_container_selector).addTagClasses(settings).makeTagLinks(settings);
+    $(settings.selectors.tags_container).addTagClasses(settings).makeTagLinks(settings);
     return $(this).makeTagCloud(settings);
   };
   
   // scrape all tags in $(this) and add them to their parent element as class names for searching
   $.fn.addTagClasses = function(options) {
     settings = $.extend({
-      item_container_selector: df.item_container_selector
+      item_container_selector: df.selectors.item_container
     }, options);
     return $(this).each(function(index) {
       $(this).closest(settings.item_container_selector).addClass($(this).text().friendlyName());
@@ -87,7 +92,7 @@
     
     $container = $(this);
         
-    $tags_container = $(settings.tags_container_selector);            
+    $tags_container = $(settings.selectors.tags_container);            
     
     var all_tags = $.taggify.getTagsArray($tags_container);   
 
@@ -147,7 +152,7 @@
     
     var $container = $(this);
     settings.container_selector = $container.selector;
-    var $item_container = $(settings.item_container_selector);
+    var $item_container = $(settings.selectors.item_container);
     
     
     $container.click(function() {  
@@ -158,7 +163,7 @@
       var filterVal = $(this).text().friendlyName();  
 
       if(filterVal === settings.show_all_tag_text.friendlyName()) {  
-        $(settings.hidden_item_container_selector).fadeIn(settings.fadeout_speed).removeClass(settings.hidden_item_class);  
+        $(settings.selectors.hidden_item_container).fadeIn(settings.fadeout_speed).removeClass(settings.hidden_item_class);  
       } else {  
         $item_container.each(function() {  
           if(!$(this).hasClass(filterVal)) {  
